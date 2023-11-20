@@ -17,13 +17,13 @@ public class CoordinatorActor extends AbstractActor {
     public CoordinatorActor() {
         trapezoidActors = new ActorRef[numActors];
         for (int i = 0; i < numActors; i++) {
-            trapezoidActors[i] = getContext().actorOf(Props.create(TrapezoidActor.class), "trapezoidActor" + i);
+            trapezoidActors[i] = getContext().actorOf(Props.create(TrapezoidActor.class));
             System.out.println("Actor creado: " + trapezoidActors[i]);
         }
     }
 
     @Override
-    public AbstractActor.Receive createReceive() {
+    public Receive createReceive() {
         return receiveBuilder()
                 .matchEquals("start", msg -> {
                     // Iniciar el cálculo distribuyendo el trabajo entre los actores del trapecio
