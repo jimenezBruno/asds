@@ -15,11 +15,10 @@ public class TrapezoidActor extends AbstractActor {
     }
 
     private double calculateTrapezoid(double x) {
-        // Implementa la fórmula del trapecio para calcular la contribución del trapecio en el punto x
-        // Puedes usar la función f(x) = x^3 + 2x + Math.exp(x + 2)
+      
+        double h = (4.0 - 1.0) / 1000.0; // Intervalo dividido en 1000 trapecios
         double fx = Math.pow(x, 3) + 2 * x + Math.exp(x + 2);
-        return fx;
+        return h * fx;
     }
 }
-
 
